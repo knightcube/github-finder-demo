@@ -6,7 +6,7 @@ import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Error404NotFound from "./pages/Error404NotFound";
-import { GithubProvider } from "./context/GitHubContext";
+import { GithubProvider } from "./context/GithubContext";
 
 function App() {
   return (
