@@ -3,9 +3,6 @@ import githubReducer from "./GithubReducer";
 
 const GithubContext = createContext();
 
-const GithubURL = import.meta.env.VITE_REACT_APP_GITHUB_URL;
-const GithubToken = import.meta.env.VITE_REACT_APP_GITHUB_TOKEN;
-
 export const GithubProvider = ({ children }) => {
   const initialState = {
     users: [],
@@ -13,6 +10,9 @@ export const GithubProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
+
+  const GithubURL = import.meta.env.VITE_REACT_APP_GITHUB_URL;
+  const GithubToken = import.meta.env.VITE_REACT_APP_GITHUB_TOKEN;
 
   // const [users, setUsers] = useState([]);
   // const [loading, setLoading] = useState(true);
@@ -31,7 +31,7 @@ export const GithubProvider = ({ children }) => {
     });
 
     const { items } = await response.json();
-    console.log(items);
+    
     dispatch({
       type: "GET_USERS",
       payload: items,
