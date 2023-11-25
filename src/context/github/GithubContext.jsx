@@ -1,5 +1,5 @@
 import { createContext, useReducer } from "react";
-import githubReducer from "./GithubReducer";
+import GithubReducer from "./GithubReducer";
 
 const GithubContext = createContext();
 
@@ -9,7 +9,8 @@ export const GithubProvider = ({ children }) => {
     loading: false,
   };
 
-  const [state, dispatch] = useReducer(githubReducer, initialState);
+  const [state, dispatch] = useReducer(GithubReducer, initialState);
+  console.log(dispatch);
 
   const GithubURL = import.meta.env.VITE_REACT_APP_GITHUB_URL;
   const GithubToken = import.meta.env.VITE_REACT_APP_GITHUB_TOKEN;
@@ -31,7 +32,7 @@ export const GithubProvider = ({ children }) => {
     });
 
     const { items } = await response.json();
-    
+
     dispatch({
       type: "GET_USERS",
       payload: items,
