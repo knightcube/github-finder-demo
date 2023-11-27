@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Error404NotFound from "./pages/Error404NotFound";
 import { GithubProvider } from "./context/github/GithubContext";
 import { AlertProvider } from "./context/alert/AlertContext";
+import UserDetail from "./components/users/UserDetail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/about" element={<About />}></Route>
+                <Route path="/user/:login" element={<UserDetail />}></Route>
                 <Route path="/notfound" element={<Error404NotFound />}></Route>
                 <Route path="/*" element={<Error404NotFound />}></Route>
               </Routes>

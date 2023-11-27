@@ -6,6 +6,7 @@ const GithubContext = createContext();
 export const GithubProvider = ({ children }) => {
   const initialState = {
     users: [],
+    user:{},
     loading: false,
   };
 
@@ -39,6 +40,26 @@ export const GithubProvider = ({ children }) => {
     });
   };
 
+  const getUser = async (login)=>{
+    setLoading();
+    const response = await fetch(`${GithubURL}/users/${login}`,{
+      headers: {
+        Authorization: `token ${GithubToken}`,
+      },
+    })
+
+    if(response.status === 404){
+      window.location = '/notfound';
+    }else{
+      const data = await response.json();
+      console.log(data)
+      dispatch({
+        type:"GET_USER_DETAILS",
+        payload: data,
+      })
+    }
+  }
+
   const setLoading = () =>
     dispatch({
       type: "SET_LOADING",
@@ -47,9 +68,12 @@ export const GithubProvider = ({ children }) => {
   return (
     <GithubContext.Provider
       value={{
-        ...state,
+        users:state.users,
+        loading:state.loading,
+        user:state.user,
         searchUsers,
         dispatch,
+        getUser,
       }}
     >
       {children}
