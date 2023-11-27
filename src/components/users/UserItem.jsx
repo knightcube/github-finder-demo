@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const UserItem = ({ user }) => {
-  return <div className="card bg-base-100 shadow-xl">
+  return <div className="card bg-base-300 shadow-xl">
         <img src={user.avatar_url} alt="avatar" />
         <div className="card-body">
             <h2 className="card-title">{user.login}</h2>

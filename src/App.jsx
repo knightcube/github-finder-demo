@@ -15,9 +15,9 @@ function App() {
     <GithubProvider>
       <AlertProvider>
         <Router>
-          <div className="flex flex-col justify-between h-screen">
+          <div className="flex flex-col justify-between h-screen bg-base-100">
             <Navbar title="GitHub Finder" />
-            <main className="container mx-auto px-3 pb-12">
+            <main className="container w-full mx-auto px-4 py-12">
               <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/about" element={<About />}></Route>

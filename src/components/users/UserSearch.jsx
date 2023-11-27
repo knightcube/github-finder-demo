@@ -32,11 +32,11 @@ const UserSearch = () => {
           <input
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full rounded-l-sm rounded-r-none bg-gray-200 text-black"
+            className="input input-bordered w-3/4 rounded-l-sm rounded-r-none bg-gray-200 text-black"
             value={text}
             onChange={handleChange}
           />
-          <button className="absolute top-0 btn rounded-l-none w-36 bg-black ">
+          <button className="btn rounded-l-none w-36 bg-black text-white">
             Go
           </button>
         </div>

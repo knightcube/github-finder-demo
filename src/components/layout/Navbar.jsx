@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Navbar = ({ title }) => {
   return (
-    <nav className="navbar mb-12 shadow-lg bg-neutral text-neutral-content">
+    <nav className="navbar mb-12 shadow-lg bg-black text-neutral-content ">
       <div className="container mx-auto">
-        <div className="flex-none p-2 m-2"></div>
+        <div className="flex-none px-2"></div>
         <FaGithub className="inline mr-2 text-3xl" />
         <Link to="/" className="text-lg font-bold align-middle">
           {title}
@@ -17,9 +18,13 @@ const Navbar = ({ title }) => {
             <Link to="/" className="btn btn-ghost btn-sm rounded-btn uppercase">
               Home
             </Link>
-            <Link to="/about" className="btn btn-ghost btn-sm rounded-btn uppercase">
+            <Link
+              to="/about"
+              className="btn btn-ghost btn-sm rounded-btn uppercase"
+            >
               About
             </Link>
+            <ThemeSwitcher />
           </div>
         </div>
       </div>
