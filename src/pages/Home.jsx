@@ -1,14 +1,21 @@
-import React, { useContext } from "react";
-import UserResults from "../components/users/UserResults";
-import UserSearch from "../components/users/UserSearch";
-import Alert from "../components/layout/Alert";
+import React, { Suspense, lazy, useContext } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+
+const ErrorFallback = lazy(()=>import("../components/ErrorFallback"));
+const UserResults = lazy(() => import("../components/users/UserResults"));
+const UserSearch = lazy(() => import("../components/users/UserSearch"));
+const Alert = lazy(() => import("../components/layout/Alert"));
 
 const Home = () => {
   return (
     <>
-      <UserSearch />
-      <Alert />
-      <UserResults />
+      <ErrorBoundary fallback={<ErrorFallback/>} onReset={() => {return console.log("reset")}}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <UserSearch />
+          <Alert />
+          <UserResults />
+        </Suspense>
+      </ErrorBoundary>
     </>
   );
 };

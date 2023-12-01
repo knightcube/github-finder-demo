@@ -1,10 +1,11 @@
-import React, { useContext} from "react";
-import Spinner from "../layout/Spinner";
-import UserItem from "./UserItem";
+import React, { Suspense, lazy, useContext } from "react";
 import GithubContext from "../../context/github/GithubContext";
 
+const Spinner = lazy(() => import("../layout/Spinner"));
+const UserItem = lazy(() => import("./UserItem"));
+
 const UserResults = () => {
-  const { users, loading} = useContext(GithubContext);
+  const { users, loading } = useContext(GithubContext);
 
   if (!loading) {
     return (

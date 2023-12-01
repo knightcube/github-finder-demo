@@ -1,6 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { lazy, useContext, useState } from "react";
 import GithubContext from "../../context/github/GithubContext";
 import AlertContext from "../../context/alert/AlertContext";
+
+// const GithubContext = lazy(()=> import("../../context/github/GithubContext"));
+// const AlertContext = lazy(()=> import("../../context/alert/AlertContext"));
 
 const UserSearch = () => {
   const [text, setText] = useState("");

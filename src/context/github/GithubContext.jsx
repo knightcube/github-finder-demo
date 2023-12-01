@@ -11,7 +11,6 @@ export const GithubProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(GithubReducer, initialState);
-  console.log(dispatch);
 
   const GithubURL = import.meta.env.VITE_REACT_APP_GITHUB_URL;
   const GithubToken = import.meta.env.VITE_REACT_APP_GITHUB_TOKEN;
